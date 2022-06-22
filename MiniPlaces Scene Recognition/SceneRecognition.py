@@ -89,9 +89,7 @@ class SimpleConvNet(nn.Module):
 
 
     def forward(self, x):
-        #################################
-        # Update the code here as needed
-        #################################
+
         # the forward propagation
         out = self.layers(x)
         if self.training:
