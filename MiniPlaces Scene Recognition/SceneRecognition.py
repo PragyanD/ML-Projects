@@ -20,10 +20,6 @@ class SimpleFCNet(nn.Module):
         super(SimpleFCNet, self).__init__()
         # create the model by adding the layers
         layers = []
- 
-        ###################################
-        #     fill in the code here       #
-        ###################################
         # Add a Flatten layer to convert the 2D pixel array to a 1D vector
         layers.append(nn.Flatten())
         # Add a fully connected / linear layer with 128 nodes
@@ -66,10 +62,7 @@ class SimpleConvNet(nn.Module):
     """
     def __init__(self, input_shape=(32, 32), num_classes=100):
         super(SimpleConvNet, self).__init__()
-        ####################################################
-        # you can start from here and create a better model
-        ####################################################
-        # this is a simple implementation of LeNet-5
+
         layers = []
         fc_dim = 16 * (input_shape[0] // 4 - 3) * (input_shape[1] // 4 - 3)
         # 2 convs
@@ -121,10 +114,7 @@ def train_model(model, train_loader, optimizer, criterion, epoch):
     model.train()
     train_loss = 0.0
     for input, target in tqdm(train_loader, total=len(train_loader)):
-        ######################################################
-        # fill in the standard training loop of forward pass,
-        # backward pass, loss computation and optimizer step
-        ######################################################
+
 
         # 1) zero the parameter gradients
         optimizer.zero_grad()
@@ -134,9 +124,6 @@ def train_model(model, train_loader, optimizer, criterion, epoch):
         loss.backward()
         optimizer.step()
 
-        # Update the train_loss variable
-        # .item() detaches the node from the computational graph
-        # Uncomment the below line after you fill block 1 and 2
         train_loss += loss.item()
 
     train_loss /= len(train_loader)
